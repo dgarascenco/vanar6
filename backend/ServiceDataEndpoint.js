@@ -26,14 +26,7 @@ module.exports.Service = class ServiceDataEndpoint {
 
             Object.keys(map).forEach( function(key, id) {                
                 if ( id > 0 )
-                    switch (key){
-                        case 'client_id': response.data = response.data.filter(element => element.client_id == map[key]);
-                                          break;
-                        case 'date':      response.data = response.data.filter(element => element.date == map[key]);
-                                          break;
-                        case 'method':    response.data = response.data.filter(element => element.method == map[key]);
-                                          break;                    
-                }               
+                    response.data = response.data.filter(element => element[key] == map[key]);             
             })
         }
         return response;
